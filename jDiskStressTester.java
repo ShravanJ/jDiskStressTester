@@ -41,7 +41,7 @@ public class jDiskStressTester
 			try
         	{
             	str = "jDiskStressTestFile_" + (long) (x) + ".txt";
-            	Thread.sleep(125);
+            	Thread.sleep(1);
             	getStartTime();
             	PrintWriter localPrintWriter = new PrintWriter(str);
             	d = getElapsedTime();
