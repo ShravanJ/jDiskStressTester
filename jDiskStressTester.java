@@ -39,22 +39,22 @@ public class jDiskStressTester
 		for(long x = 1; x <= numFiles; x++)
 		{
 			try
-        	{
-            	str = "jDiskStressTestFile_" + (long) (x) + ".txt";
-            	Thread.sleep(1);
-            	getStartTime();
-            	PrintWriter localPrintWriter = new PrintWriter(str);
-            	d = getElapsedTime();
-            	System.out.println("File " + str +  " was created in " + d + " seconds");
-            	if(x == numFiles)
-            	{
-            		done = true;
-            	}
-         	}
-         	catch (Exception e)
-         	{
-            	System.out.print("Error " + e);
-         	}
+        		{
+            			str = "jDiskStressTestFile_" + (long) (x) + ".txt";
+            			Thread.sleep(1);
+            			getStartTime();
+            			PrintWriter localPrintWriter = new PrintWriter(str);
+            			d = getElapsedTime();
+            			System.out.println("File " + str +  " was created in " + d + " seconds");
+            			if(x == numFiles)
+            			{
+            				done = true;
+            			}
+         		}
+         		catch (Exception e)
+         		{
+            			System.out.print("Error " + e);
+         		}
 		}
 		return done;
 	}
@@ -69,5 +69,5 @@ public class jDiskStressTester
 		long time = System.currentTimeMillis();
 		return (time - startTime) / 1000;
 	}
-
+	
 }
