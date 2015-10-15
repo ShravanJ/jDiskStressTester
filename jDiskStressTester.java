@@ -19,6 +19,8 @@ public class jDiskStressTester
 		long numFiles = 0;
 		long elapsedTime;
 		System.out.println("Welcome to jDiskStressTester");
+		System.out.println("Designed and implemented by Shravan Jambukesan and Nicholas Berry");
+		System.out.println("Source code available at https://github.com/ShravanJ/jDiskStressTester");
 		System.out.println("Press CTRL+C to stop the program before it finishes if needed");
 		System.out.print("Enter the number of files you would like to create: ");
 		numFiles = scan.nextLong();
@@ -52,6 +54,32 @@ public class jDiskStressTester
 		for(long x = 1; x <= numFiles; x++)
 		  {
 			try
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+        	{
+            	str = "jDiskStressTesterFile_" + (long) (x) + ".txt";
+            	Thread.sleep(1);
+            	PrintWriter p = new PrintWriter(str);
+            	if(isVerbose)
+            	{
+            		System.out.println("File " + str +  " was created");
+            	}
+            	if(x == numFiles)
+            	{
+            		long end = System.currentTimeMillis();
+            		double time = (end - start) / 1000;
+            		System.out.println(numFiles + " files were generated in " + time + " seconds");
+            		done = true;
+            	}
+         	}
+         	catch (Exception e)
+         	{
+            	System.out.print("Error " + e);
+         	}
+		}
+=======
+>>>>>>> Stashed changes
         		  {
             			str = "jDiskStressTestFile_" + (long) (x) + ".txt";
             			Thread.sleep(1);
@@ -73,6 +101,10 @@ public class jDiskStressTester
             			System.out.print("Error " + e);
          		  }
 		  }
+<<<<<<< Updated upstream
+=======
+>>>>>>> origin/master
+>>>>>>> Stashed changes
 		return done;
 	  }	
 }
