@@ -1,6 +1,12 @@
 # jDiskStressTester
 The conceptual succesor to FileSpammer. FileSpammer was an interesting idea, however the implementation was pretty lame. So instead of trying to fix up FileSpamemr, I decided to almost completely re-write it as jDiskStressTester. 
 
+Usage
+======
+Just enter in the number of files you want to be created to run the stress test (any number between 0 and 9223372036854775807)
+
+Specifiy if you want to a print statement each time a file is created by stating yes or no at the verbose output prompt. If you say yes the program will print "File x was created" each time a file is created, if you say no it will only display "Running..." until the program has finished creating all of the files. 
+
 Research
 ========
 Here is some very unscientific data I have collected from my short term testing
