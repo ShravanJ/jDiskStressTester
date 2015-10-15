@@ -10,7 +10,8 @@ import java.io.*;
 
 public class jDiskStressTester
 {
-	private static long startTime;
+	private static String verbose;
+	private static boolean isVerbose;
 	public static void main(String[] args)
 	{
 		boolean b = true;
@@ -21,6 +22,17 @@ public class jDiskStressTester
 		System.out.println("Press CTRL+C to stop the program before it finishes if needed");
 		System.out.print("Enter the number of files you would like to create: ");
 		numFiles = scan.nextLong();
+		System.out.print("Would you like verbose output <yes/no>?: ");
+		verbose = scan.next();
+		if(verbose.equals("yes"))
+		{
+			isVerbose = true;
+		}
+		else
+		{
+			isVerbose = false;
+		}
+		System.out.println("Running...");
 		while(b)
 		{
 			boolean run = fileCreator(numFiles);
@@ -33,24 +45,27 @@ public class jDiskStressTester
 
 	public static boolean fileCreator(long numFiles)
 	{
+		
 		boolean done = false;
 		String str = "";
-		double d = 0;
+		long start;
+		start = System.currentTimeMillis();
 		for(long x = 1; x <= numFiles; x++)
 		{
 			try
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
         	{
             	str = "jDiskStressTestFile_" + (long) (x) + ".txt";
-            	Thread.sleep(125);
-            	getStartTime();
+            	Thread.sleep(1);
             	PrintWriter p = new PrintWriter(str);
-            	d = getElapsedTime();
-            	System.out.println("File " + str +  " was created in " + d + " seconds");
+            	if(isVerbose)
+            	{
+            		System.out.println("File " + str +  " was created");
+            	}
             	if(x == numFiles)
             	{
+            		long end = System.currentTimeMillis();
+            		double time = (end - start) / 1000;
+            		System.out.println(numFiles + " files were generated in " + time + " seconds");
             		done = true;
             	}
          	}
@@ -58,41 +73,7 @@ public class jDiskStressTester
          	{
             	System.out.print("Error " + e);
          	}
-=======
->>>>>>> Stashed changes
-        		{
-            			str = "jDiskStressTestFile_" + (long) (x) + ".txt";
-            			Thread.sleep(1);
-            			getStartTime();
-            			PrintWriter localPrintWriter = new PrintWriter(str);
-            			d = getElapsedTime();
-            			System.out.println("File " + str +  " was created in " + d + " seconds");
-            			if(x == numFiles)
-            			{
-            				done = true;
-            			}
-         		}
-         		catch (Exception e)
-         		{
-            			System.out.print("Error " + e);
-         		}
-<<<<<<< Updated upstream
-=======
->>>>>>> origin/master
->>>>>>> Stashed changes
 		}
 		return done;
-	}
-
-	public static void getStartTime()
-	{
-		startTime = System.currentTimeMillis();
-	}
-
-	public static double getElapsedTime()
-	{
-		long time = System.currentTimeMillis();
-		return (time - startTime) / 1000;
-	}
-	
+	}	
 }
