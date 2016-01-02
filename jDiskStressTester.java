@@ -58,6 +58,8 @@ public class jDiskStressTester
             			str = "jDiskStressTesterFile_" + (long) (x) + ".txt";
             			Thread.sleep(1);
             			PrintWriter p = new PrintWriter(str);
+            			p.println("Test file created courtesy of Nicholas Berry and Shravan Jambukesan");	
+            			p.println("");
             			if(isVerbose)
             	  	  	  {
             				System.out.println("File " + str +  " was created");
