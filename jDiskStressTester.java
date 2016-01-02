@@ -60,6 +60,7 @@ public class jDiskStressTester
             			PrintWriter p = new PrintWriter(str);
             			p.println("Test file created courtesy of Nicholas Berry and Shravan Jambukesan");	
             			p.println("");
+            			p.close();
             			if(isVerbose)
             	  	  	  {
             				System.out.println("File " + str +  " was created");
