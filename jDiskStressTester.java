@@ -13,37 +13,53 @@ public class jDiskStressTester
 	private static String verbose;
 	private static boolean isVerbose;
 	public static void main(String[] args)
-	  {
-		boolean b = true;
-		Scanner scan = new Scanner(System.in);
-		long numFiles = 0;
-		long elapsedTime;
-		System.out.println("Welcome to jDiskStressTester");
-		System.out.println("Designed and implemented by Shravan Jambukesan and Nicholas Berry");
-		System.out.println("Source code available at https://github.com/ShravanJ/jDiskStressTester");
-		System.out.println("Press CTRL+C to stop the program before it finishes if needed");
-		System.out.print("Enter the number of files you would like to create: ");
-		numFiles = scan.nextLong();
-		System.out.print("Would you like verbose output <yes/no>?: ");
-		verbose = scan.next();
-		if(verbose.equals("yes"))
-		  {
-			isVerbose = true;
-		  }
-		else
-		  {
-			isVerbose = false;
-		  }
-		System.out.println("Running...");
-		while(b)
-		  {
-			boolean run = fileCreator(numFiles);
-			if(run)
-			  {
-				b = false;
-			  }
-		  }
-	  }
+	{
+		boolean isRepeat = true;
+		String repeating = "";
+		Scanner read = new Scanner(System.in);
+		while(isRepeat == true)
+		{
+			isRepeat = false;
+			isRepeat = false;
+			boolean b = true;
+			Scanner scan = new Scanner(System.in);
+			long numFiles = 0;
+			long elapsedTime;
+			System.out.println("Welcome to jDiskStressTester");
+			System.out.println("Designed and implemented by Shravan Jambukesan and Nicholas Berry");
+			System.out.println("Source code available at https://github.com/ShravanJ/jDiskStressTester");
+			System.out.println("Press CTRL+C to stop the program before it finishes if needed");
+			System.out.print("Enter the number of files you would like to create: ");
+			numFiles = scan.nextLong();
+			System.out.print("Would you like verbose output <yes/no>?: ");
+			verbose = scan.next();
+			if(verbose.equals("yes"))
+			{
+				isVerbose = true;
+			}
+			else
+			{
+				isVerbose = false;
+			}
+				System.out.println("Running...");
+			while(b)
+			{
+				boolean run = fileCreator(numFiles);
+				if(run)
+				{
+					b = false;
+				}
+			}
+			System.out.println("");
+			System.out.print("Would you like to test again <yes/no>?: ");
+			repeating = read.next();
+			if(repeating.equals("yes"))
+			{
+				isRepeat = true;
+			}
+			System.out.println("");
+		}		
+	}
 
 	public static boolean fileCreator(long numFiles)
 	  {
